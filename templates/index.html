@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container my-5">
+        {% if ran %}
+        <h2>The following are the repositories we ran against...</h2>
+        {% else %}
+        <h2>Let's get you watching all the repos in a GitHub Org!</h2>
+        <p>Click on "Run" above, and let it run!</p>
+        {% endif %}
+
+    </div>
+
+    {% if ran %}
+    <div class="container my-5">
+    <div class="alert alert-info">
+        Detailed logs are located <a href="{{ url_for('static', filename='out.log') }}">here</a>.
+    </div>
+    {% for repo in repo_list %}
+        <div class='repo_list'>
+            <p><a href="https://github.com/{{ org }}/{{ repo['name'] }}">https://github.com/{{ org }}/{{ repo['name'] }}</a></p>
+        </div>
+    {% endfor %}
+    <h2>We ran against {{ total_repos }} repositories in the <a href="https://github.com/{{ org }}">github.com/{{ org }}</a> organization.</h2>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container my-5">
+    <p>This is a simple helper application, to "watch"/"subscribe" every repository in a GitHub Organization. As of the creation of this application, there is no way at an "org level" to watch every repository for a given namespace.</p>
+        
+    <p>This means, if you are coming into a new organizanion, or have a "security" audit, you would have to walk through each and every repository and click "watch" -> "all activity."</p>
+        
+    <p>This application automates this, and also uses the <a href="https://api.github.com/graphql">GraphQL</a> API endpoint, so you _shouldn't_ hit any of the standard REST API limits.</p>
+    </div>
+
+{% endblock %}

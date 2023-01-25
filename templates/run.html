@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <form method="post">
+        <div class="mb-3">
+        <label for="GitHubOrg" class="form-label">GitHub Organization</label>
+        <br>
+        <input class="form-control" type="text" name="githuborg"
+               value="{{ request.form['githuborg'] }}"></input>
+        <div id="githubOrgHelp" class="form-text">The GitHub Organization you want to set to 'watch everything'</div>
+        </div>
+
+        <div class="mb-3">
+        <label for="ghpublictoken" class="form-label">GitHub Token</label>
+        <br>
+        <input class="form-control" type="password" name="githubtoken"
+                  value="{{ request.form['githubtoken'] }}"></input>
+        <div id="githubOrgHelp" class="form-text">The GitHub Token with at least 'Notification' permissions</div>
+        </div>
+        <div class="alert alert-warning" role="alert">
+            <b>Note:</b> Depending on how many repositories you're going to watch, this could take a bit.
+          </div>
+        <button type="submit">Submit</button>
+
+    </form>
+</div>
+{% endblock %}
